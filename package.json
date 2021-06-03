@@ -1,0 +1,27 @@
+{
+    "name": "VehicularEpic",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app/main.js",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/VehicularEpic/VehicularEpic.git"
+    },
+    "keywords": [],
+    "author": "Vitor Macedo",
+    "license": "GPL",
+    "bugs": {
+        "url": "https://github.com/VehicularEpic/VehicularEpic/issues"
+    },
+    "homepage": "https://github.com/VehicularEpic/VehicularEpic#readme",
+    "dependencies": {
+        "bindings": "^1.5.0"
+    },
+    "devDependencies": {
+        "@types/bindings": "^1.5.0",
+        "electron": "^13.1.0",
+        "electron-builder": "^22.10.5",
+        "typescript": "^4.3.2"
+    }
+}
