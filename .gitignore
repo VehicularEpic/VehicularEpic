@@ -1,0 +1,13 @@
+.idea
+.vscode
+
+/out
+/dist
+/build
+/node_modules
+
+/cmake-build-debug
+/cmake-build-release
+
+/app/**/*.js
+package-lock.json
