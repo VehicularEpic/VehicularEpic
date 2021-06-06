@@ -7,7 +7,12 @@
 #include <windows.h>
 #include <delayimp.h>
 
+#include <cstdio>
 #include <cstring>
+
+static void reopen(FILE *stream, const char *mode) {
+    freopen_s(&stream, "CON", mode, stream);
+}
 
 static FARPROC WINAPI NodeDelayLoadHook(unsigned int event, DelayLoadInfo *info) {
     if (event != dliNotePreLoadLibrary)
@@ -15,6 +20,12 @@ static FARPROC WINAPI NodeDelayLoadHook(unsigned int event, DelayLoadInfo *info)
 
     if (_stricmp(info->szDll, "NODE.EXE") != 0)
         return nullptr;
+
+    AttachConsole(ATTACH_PARENT_PROCESS);
+
+    reopen(stdin, "r");
+    reopen(stdout, "w");
+    reopen(stderr, "w");
 
     return (FARPROC) GetModuleHandle(nullptr);
 }
