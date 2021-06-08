@@ -34,6 +34,7 @@ Window::Window(const std::string &Title) {
     }
 
     glfwSetWindowUserPointer(Win, this);
+    glfwSetInputMode(Win, GLFW_LOCK_KEY_MODS, GLFW_TRUE);
 
     glfwSetWindowSizeCallback(Win, Window::WindowSizeCallback);
     glfwSetWindowCloseCallback(Win, Window::WindowCloseCallback);
@@ -167,6 +168,52 @@ void Window::KeyCallback(GLFWwindow *Win, int Key, int Scancode, int Action, int
 
     if (GLFW_KEY_UNKNOWN == Key) {
         return;
+    }
+
+    if (!(GLFW_MOD_NUM_LOCK & Mods)) {
+        if (GLFW_KEY_KP_0 == Key) {
+            Key = GLFW_KEY_INSERT;
+        }
+
+        if (GLFW_KEY_KP_DECIMAL == Key) {
+            Key = GLFW_KEY_DELETE;
+        }
+
+        if (GLFW_KEY_KP_1 == Key) {
+            Key = GLFW_KEY_END;
+        }
+
+        if (GLFW_KEY_KP_2 == Key) {
+            Key = GLFW_KEY_DOWN;
+        }
+
+        if (GLFW_KEY_KP_3 == Key) {
+            Key = GLFW_KEY_PAGE_DOWN;
+        }
+
+        if (GLFW_KEY_KP_4 == Key) {
+            Key = GLFW_KEY_LEFT;
+        }
+
+        if (GLFW_KEY_KP_5 == Key) {
+            return;
+        }
+
+        if (GLFW_KEY_KP_6 == Key) {
+            Key = GLFW_KEY_RIGHT;
+        }
+
+        if (GLFW_KEY_KP_7 == Key) {
+            Key = GLFW_KEY_HOME;
+        }
+
+        if (GLFW_KEY_KP_8 == Key) {
+            Key = GLFW_KEY_UP;
+        }
+
+        if (GLFW_KEY_KP_9 == Key) {
+            Key = GLFW_KEY_PAGE_UP;
+        }
     }
 
     if (InputAction::Press == Action || GLFW_REPEAT == Action) {
