@@ -55,8 +55,8 @@ Window::Window(const std::string &Title) {
 }
 
 void Window::Show() {
+    glfwMaximizeWindow(Win);
     glfwShowWindow(Win);
-    glfwGetWindowSize(Win, &Width, &Height);
 }
 
 void Window::Update() {
