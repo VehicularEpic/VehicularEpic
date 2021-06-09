@@ -4,6 +4,9 @@ project(VehicularEpic)
 # Install to build folder
 set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/out)
 
+# External dependencies folder
+set(EXTERNAL_SOURCES_DIR ${PROJECT_SOURCE_DIR}/external)
+
 # Sets C++11 as standard
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 11)
@@ -38,13 +41,13 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 # ------------------------------------------------------ #
 
 # Add glm target
-add_subdirectory(${PROJECT_SOURCE_DIR}/glm)
+add_subdirectory(${EXTERNAL_SOURCES_DIR}/glm)
 
 # Add glad target
-add_subdirectory(${PROJECT_SOURCE_DIR}/glad)
+add_subdirectory(${EXTERNAL_SOURCES_DIR}/glad)
 
 # Add glfw target
-add_subdirectory(${PROJECT_SOURCE_DIR}/glfw)
+add_subdirectory(${EXTERNAL_SOURCES_DIR}/glfw)
 
 # Set project's target
 add_library(${PROJECT_NAME} SHARED ${PROJECT_SOURCES})
@@ -54,7 +57,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 target_link_libraries(${PROJECT_NAME} glm glad glfw)
 
 # Include node-addon-api
-target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/node-addon-api)
+target_include_directories(${PROJECT_NAME} PRIVATE ${EXTERNAL_SOURCES_DIR}/node)
 
 # Set path of Node.JS headers
 set(NODE_PACKAGE node-${NODE_VERSION}-headers.tar.gz)

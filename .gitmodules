@@ -1,12 +1,12 @@
-[submodule "glm"]
-	path = glm
+[submodule "external/glm"]
+	path = external/glm
 	url = https://github.com/g-truc/glm.git
-[submodule "glad"]
-	path = glad
+[submodule "external/glad"]
+	path = external/glad
 	url = https://github.com/Dav1dde/glad.git
-[submodule "glfw"]
-	path = glfw
+[submodule "external/glfw"]
+	path = external/glfw
 	url = https://github.com/glfw/glfw.git
-[submodule "node-addon-api"]
-	path = node-addon-api
+[submodule "external/node"]
+	path = external/node
 	url = https://github.com/nodejs/node-addon-api.git
