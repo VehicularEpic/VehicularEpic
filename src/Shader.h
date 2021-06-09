@@ -12,8 +12,12 @@ class Shader {
 public:
     Shader(const std::string &, const std::string &);
 
-    GLuint GetProgram() const {
-        return Program;
+    void Bind() const {
+        glUseProgram(this->Program);
+    }
+
+    static void Unbind() {
+        glUseProgram(0);
     }
 
 private:
