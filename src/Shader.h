@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef _Shader
-#define _Shader
-
 #include <glad/glad.h>
 
 #include <string>
@@ -25,6 +22,3 @@ private:
 
     static void Compile(const std::string &, GLuint, GLenum);
 };
-
-
-#endif

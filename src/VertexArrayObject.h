@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef _VertexArrayObject
-#define _VertexArrayObject
-
 #include <glad/glad.h>
 
 #include <vector>
@@ -28,6 +25,3 @@ private:
     std::vector<GLuint> Buffers;
 
 };
-
-
-#endif

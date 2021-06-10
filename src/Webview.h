@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef _Webview
-#define _Webview
-
 #include "Shader.h"
 #include "VertexArrayObject.h"
 
@@ -26,6 +23,3 @@ private:
 
     VertexArrayObject Object = VertexArrayObject();
 };
-
-
-#endif

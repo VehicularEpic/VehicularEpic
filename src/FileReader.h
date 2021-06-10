@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef _FileReader
-#define _FileReader
-
 #include <napi.h>
 
 #include <iostream>
@@ -16,6 +13,3 @@ public:
 private:
     static Napi::FunctionReference Reader;
 };
-
-
-#endif

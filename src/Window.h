@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef _Window
-#define _Window
-
 #define GLFW_INCLUDE_NONE
 
 #include <GLFW/glfw3.h>
@@ -119,6 +116,3 @@ private:
 
     static void CharCallback(GLFWwindow *, unsigned int);
 };
-
-
-#endif

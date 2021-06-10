@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef _InputAction
-#define _InputAction
-
 #include <GLFW/glfw3.h>
 
 enum InputAction : int {
@@ -11,5 +8,3 @@ enum InputAction : int {
     Release = GLFW_RELEASE
 
 };
-
-#endif
