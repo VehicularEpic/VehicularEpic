@@ -1,13 +1,19 @@
 {
     "compilerOptions": {
-        "target": "ES6",
+        "outDir": "dist",
+        "target": "ESNext",
         "module": "CommonJS",
         "strict": true,
         "noImplicitAny": true,
         "strictNullChecks": true,
         "alwaysStrict": true,
         "noImplicitReturns": true,
+        "resolveJsonModule": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true
-    }
+    },
+    "include": [
+        "app/**/*.ts",
+        "app/**/*.d.ts"
+    ]
 }
