@@ -1,6 +1,7 @@
 .vs
 .idea
 .vscode
+.DS_Store
 
 /out
 /dist
@@ -10,5 +11,4 @@
 /cmake-build-debug
 /cmake-build-release
 
-/app/**/*.js
 package-lock.json
