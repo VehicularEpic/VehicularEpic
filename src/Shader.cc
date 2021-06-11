@@ -17,7 +17,7 @@ Shader::Shader(const std::string &VertexShader, const std::string &FragmentShade
         std::vector<GLchar> infoLog(length);
         glGetProgramInfoLog(Program, length, &length, &infoLog[0]);
 
-        fprintf(stderr, "Error: %s", &infoLog[0]);
+        fprintf(stderr, "Shader program error:\n%s\n", &infoLog[0]);
     }
 }
 
@@ -42,7 +42,7 @@ void Shader::Compile(const std::string &File, GLuint Program, GLenum Type) {
         std::vector<GLchar> description(length);
         glGetShaderInfoLog(shader, length, &length, &description[0]);
 
-        fprintf(stderr, "(%s) GL %s", File.c_str(), &description[0]);
+        fprintf(stderr, "Shader compile error '%s':\n%s\n", File.c_str(), &description[0]);
     }
 
     glAttachShader(Program, shader);
