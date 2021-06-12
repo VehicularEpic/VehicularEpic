@@ -1,15 +1,11 @@
 #pragma once
 
-#include <napi.h>
-
-#include <iostream>
+#include <cstdio>
+#include <string>
+#include <vector>
 
 class FileReader {
 public:
-    static void Init(const Napi::Object &global);
+    static std::vector<uint8_t> Read(const std::string &);
 
-    static Napi::Buffer<uint8_t> Read(const std::string &filename);
-
-private:
-    static Napi::FunctionReference Reader;
 };

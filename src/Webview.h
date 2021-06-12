@@ -16,10 +16,7 @@ public:
 private:
     GLuint Texture = 0;
 
-    Shader ShaderProgram = Shader(
-            "resources/shaders/webview.vs",
-            "resources/shaders/webview.fs"
-    );
+    Shader ShaderProgram = Shader("webview.vs", "webview.fs");
 
     VertexArrayObject Object = VertexArrayObject();
 };

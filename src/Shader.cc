@@ -1,9 +1,11 @@
 #include "Shader.h"
 #include "FileReader.h"
 
+#define SHADERS_PATH "resources/shaders/"
+
 Shader::Shader(const std::string &VertexShader, const std::string &FragmentShader) {
-    Shader::Compile(VertexShader, Program, GL_VERTEX_SHADER);
-    Shader::Compile(FragmentShader, Program, GL_FRAGMENT_SHADER);
+    Shader::Compile(SHADERS_PATH + VertexShader, Program, GL_VERTEX_SHADER);
+    Shader::Compile(SHADERS_PATH + FragmentShader, Program, GL_FRAGMENT_SHADER);
 
     glLinkProgram(Program);
 
@@ -24,8 +26,8 @@ Shader::Shader(const std::string &VertexShader, const std::string &FragmentShade
 void Shader::Compile(const std::string &File, GLuint Program, GLenum Type) {
     GLuint shader = glCreateShader(Type);
 
-    std::string source = FileReader::Read(File)
-            .ToString().Utf8Value();
+    auto buffer = FileReader::Read(File);
+    std::string source(buffer.begin(), buffer.end());
 
     const char *data = source.c_str();
     glShaderSource(shader, 1, &data, nullptr);

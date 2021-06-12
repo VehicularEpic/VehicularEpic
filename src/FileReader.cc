@@ -1,17 +1,32 @@
 #include "FileReader.h"
 
-Napi::FunctionReference FileReader::Reader;
+std::vector<uint8_t> FileReader::Read(const std::string &File) {
+    FILE *file;
 
-void FileReader::Init(const Napi::Object &global) {
-    Napi::Function function = global.Get("reader")
-            .As<Napi::Function>();
+    int error = fopen_s(&file, File.c_str(), "rb");
 
-    FileReader::Reader = Napi::Persistent(function);
-}
+    if (error > 0) {
+        if (error == ENOENT) {
+            fprintf(stderr, "Error: %s not found\n", File.c_str());
+        }
 
-Napi::Buffer<uint8_t> FileReader::Read(const std::string &filename) {
-    Napi::Env env = FileReader::Reader.Env();
+        throw std::exception("Error loading file");
+    }
 
-    return FileReader::Reader.Call({Napi::String::New(env, filename)})
-            .As<Napi::Buffer<uint8_t>>();
+    fseek(file, 0, SEEK_END);
+
+    size_t size = ftell(file);
+    rewind(file);
+
+    std::vector<uint8_t> buffer(size);
+
+    size_t read = fread_s(&buffer[0], buffer.size(), 1, size, file);
+
+    if (read != size) {
+        throw std::exception("Bytes read differ from file size!");
+    }
+
+    fclose(file);
+
+    return buffer;
 }
