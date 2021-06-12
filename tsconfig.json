@@ -10,7 +10,15 @@
         "noImplicitReturns": true,
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "paths": {
+            "~/*": [
+                "./web/src/*"
+            ],
+            "@/*": [
+                "./web/src/*"
+            ]
+        }
     },
     "include": [
         "app/**/*.ts",
