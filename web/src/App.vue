@@ -1,5 +1,7 @@
 <template>
-    <div class="container mx-auto"></div>
+    <div class="flex w-full h-full p-2">
+        <router-view />
+    </div>
 </template>
 
 <script lang="ts">
