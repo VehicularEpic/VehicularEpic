@@ -78,8 +78,6 @@ public:
 
     void Update();
 
-    void Destroy();
-
     bool ShouldClose();
 
     static void VSync(bool);

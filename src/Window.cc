@@ -64,11 +64,6 @@ void Window::Update() {
     glfwPollEvents();
 }
 
-void Window::Destroy() {
-    glfwDestroyWindow(Win);
-    glfwTerminate();
-}
-
 bool Window::ShouldClose() {
     return glfwWindowShouldClose(Win);
 }
@@ -79,6 +74,8 @@ void Window::VSync(bool value) {
 
 void Window::WindowCloseCallback(GLFWwindow *Win) {
     auto Instance = static_cast<Window *>(glfwGetWindowUserPointer(Win));
+
+    glfwDestroyWindow(Win);
 
     for (const auto &listener : Instance->WindowCloseListeners) {
         listener();
