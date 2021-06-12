@@ -47,14 +47,14 @@ Webview::Webview() {
     VertexArrayObject::Unbind();
 }
 
-void Webview::Resize(int Width, int Height) {
+void Webview::Resize(int Width, int Height) const {
     glBindTexture(GL_TEXTURE_2D, Texture);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, Width, Height, 0, GL_BGRA, GL_UNSIGNED_BYTE, nullptr);
 
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void Webview::Paint(int Width, int Height, const void *data) {
+void Webview::Paint(int Width, int Height, const void *data) const {
     glBindTexture(GL_TEXTURE_2D, Texture);
     glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, Width, Height, GL_BGRA, GL_UNSIGNED_BYTE, data);
 

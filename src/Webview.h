@@ -7,9 +7,9 @@ class Webview {
 public:
     Webview();
 
-    void Resize(int, int);
+    void Resize(int, int) const;
 
-    void Paint(int, int, const void *);
+    void Paint(int, int, const void *) const;
 
     void Render();
 
