@@ -19,7 +19,7 @@ string(REGEX REPLACE "[\r\n]" "" NODE_VERSION ${NODE_VERSION})
 add_definitions(-DBUILDING_NODE_EXTENSION)
 
 # Defines NAPI version
-add_definitions(-DNAPI_VERSION=4)
+add_definitions(-DNAPI_VERSION=6)
 
 # Project's source files
 file(GLOB_RECURSE PROJECT_SOURCES src/*.cc)
